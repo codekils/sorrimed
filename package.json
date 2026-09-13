@@ -1,0 +1,19 @@
+{
+  "name": "sorrimed",
+  "version": "0.1.0",
+  "description": "Fundacao tecnica do site institucional SorriMed.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.14"
+  }
+}

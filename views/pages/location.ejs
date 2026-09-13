@@ -1,0 +1,41 @@
+<% const locationData = location || {}; %>
+<% const hasLocationContent = locationData.address || locationData.mapUrl; %>
+
+<section class="location-page section-light" aria-labelledby="location-page-title">
+  <div class="container location-page-shell">
+    <div class="section-heading location-page-header">
+      <div>
+        <p class="section-kicker">06 / Localização</p>
+        <h1 id="location-page-title">Onde estamos.</h1>
+      </div>
+      <a class="button button-primary" href="<%= whatsappUrl %>" target="_blank" rel="noopener noreferrer">Falar com a equipe <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <% if (hasLocationContent) { %>
+      <div class="location-card location-page-card">
+        <% if (locationData.address) { %>
+          <div class="location-card-copy">
+            <p class="section-kicker">Endereço</p>
+            <address class="location-address"><%= locationData.address %></address>
+          </div>
+        <% } %>
+        <% if (locationData.mapUrl) { %>
+          <a class="text-link dark-link location-map-link" href="<%= locationData.mapUrl %>" target="_blank" rel="noopener noreferrer">Abrir no mapa <span aria-hidden="true">↗</span></a>
+        <% } %>
+        <div class="location-page-map"><iframe title="Mapa de Santa Albertina, São Paulo" src="https://www.google.com/maps?q=Santa+Albertina,+S%C3%A3o+Paulo,+Brasil&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>
+    <% } else { %>
+      <div class="empty-state" role="status" aria-live="polite">
+        Ainda não há informações de localização disponíveis para apresentação.
+      </div>
+    <% } %>
+
+    <section class="location-cta" aria-labelledby="location-cta-title">
+      <div>
+        <p class="section-kicker">Atendimento</p>
+        <h2 id="location-cta-title">Combine sua visita com uma conversa simples.</h2>
+      </div>
+      <a class="button button-primary" href="<%= whatsappUrl %>" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp <span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</section>

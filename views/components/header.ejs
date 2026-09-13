@@ -1,0 +1,14 @@
+<% const headerContact = typeof contact !== 'undefined' ? contact : {}; %>
+<% const headerWhatsapp = typeof whatsappUrl !== 'undefined' ? whatsappUrl : ''; %>
+<% const navigationItems = [{ page: 'home', href: '/', label: 'Início' }, { page: 'about', href: '/sobre', label: 'Sobre' }, { page: 'services', href: '/servicos', label: 'Serviços' }, { page: 'professionals', href: '/profissionais', label: 'Profissionais' }, { page: 'insurance-plans', href: '/convenios', label: 'Convênios' }, { page: 'contact', href: '/contato', label: 'Contato' }]; %>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="SorriMed, início"><span class="brand-mark" aria-hidden="true">S</span><span>Sorri<span>Med</span></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"><span class="sr-only">Abrir menu</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+    <nav id="main-navigation" class="main-navigation" aria-label="Navegação principal">
+      <% navigationItems.forEach((item) => { %><a href="<%= item.href %>"<%- page === item.page ? ' aria-current="page"' : '' %>><%= item.label %></a><% }) %>
+      <% if (headerWhatsapp) { %><a class="header-whatsapp" href="<%= headerWhatsapp %>" target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a><% } %>
+    </nav>
+  </div>
+</header>

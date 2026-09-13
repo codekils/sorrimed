@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "name": "Plano Sorriso Essencial",
+    "logo": null,
+    "description": "Cobertura fictícia para cuidados odontológicos preventivos e acompanhamento regular."
+  },
+  {
+    "id": "2",
+    "name": "Rede Bem-Estar Dental",
+    "logo": null,
+    "description": "Plano fictício com opções de cuidado odontológico para diferentes momentos."
+  },
+  {
+    "id": "3",
+    "name": "Clube Saúde Bucal",
+    "logo": null,
+    "description": "Programa fictício criado para validar a apresentação de convênios no site."
+  }
+]

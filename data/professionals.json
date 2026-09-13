@@ -1,0 +1,5 @@
+[
+  { "id": "1", "name": "Dra. Marina Costa", "photo": "/images/doutores/mariana-costa.jpg", "specialty": "Clínica geral e prevenção", "description": "Cuidado atento para construir hábitos que acompanham cada fase da vida." },
+  { "id": "2", "name": "Dr. Rafael Nunes", "photo": "/images/doutores/rafael-nunes.jpg", "specialty": "Ortodontia", "description": "Planejamento preciso e acompanhamento próximo em cada etapa do tratamento." },
+  { "id": "3", "name": "Dra. Lívia Martins", "photo": "/images/doutores/livia-martins.jpg", "specialty": "Estética dental", "description": "Resultados naturais começam com escuta, transparência e escolhas conscientes." }
+]

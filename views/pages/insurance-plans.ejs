@@ -1,0 +1,45 @@
+<section class="insurance-plans-page section-light" aria-labelledby="insurance-plans-page-title">
+  <div class="container insurance-plans-page-shell">
+    <div class="section-heading insurance-plans-header">
+      <div>
+        <p class="section-kicker">05 / Convênios</p>
+        <h1 id="insurance-plans-page-title">Atendimento pensado para<br><em>te acompanhar.</em></h1>
+      </div>
+      <a class="button button-primary" href="<%= whatsappUrl %>" target="_blank" rel="noopener noreferrer">Falar com a equipe <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <% if (insurancePlans && insurancePlans.length) { %>
+      <div class="insurance-plans-grid" aria-live="polite">
+        <% insurancePlans.forEach((plan, index) => { %>
+          <article class="insurance-plan-card">
+            <div class="insurance-plan-logo" aria-label="Logo do convênio <%= plan.name %>">
+              <% if (plan.logo) { %>
+                <img src="<%= plan.logo %>" alt="<%= plan.name %>" loading="lazy">
+              <% } else { %>
+                <span><%= plan.name.split(' ').slice(0, 2).map((part) => part[0]).join('').slice(0, 2).toUpperCase() %></span>
+              <% } %>
+            </div>
+            <div class="insurance-plan-copy">
+              <h2><%= plan.name %></h2>
+              <% if (plan.description) { %>
+                <p><%= plan.description %></p>
+              <% } %>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <div class="empty-state" role="status" aria-live="polite">
+        Ainda não há convênios ou planos cadastrados para apresentação.
+      </div>
+    <% } %>
+
+    <section class="insurance-plans-cta" aria-labelledby="insurance-plans-cta-title">
+      <div>
+        <p class="section-kicker">Atendimento</p>
+        <h2 id="insurance-plans-cta-title">Precisamos entender o momento ideal para o seu cuidado.</h2>
+      </div>
+      <a class="button button-primary" href="<%= whatsappUrl %>" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp <span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</section>

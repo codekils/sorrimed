@@ -1,0 +1,5 @@
+[
+  { "id": "1", "name": "Clínica geral", "description": "Prevenção e cuidados essenciais para acompanhar sua saúde bucal.", "image": null },
+  { "id": "2", "name": "Ortodontia", "description": "Planos personalizados para alinhar seu sorriso com conforto e acompanhamento.", "image": null },
+  { "id": "3", "name": "Estética dental", "description": "Possibilidades estéticas conversadas com naturalidade e responsabilidade.", "image": null }
+]

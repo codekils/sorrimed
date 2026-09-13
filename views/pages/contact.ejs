@@ -1,0 +1,53 @@
+<% const contactData = contact || {}; %>
+<% const whatsappNumber = contactData.whatsapp ? String(contactData.whatsapp).replace(/[^\d]/g, '') : ''; %>
+<% const hasChannels = whatsappNumber || contactData.phone || contactData.email; %>
+
+<section class="contact-page section-light" aria-labelledby="contact-page-title">
+  <div class="container contact-page-shell">
+    <div class="section-heading contact-page-header">
+      <div>
+        <p class="section-kicker">07 / Contato</p>
+        <h1 id="contact-page-title">Vamos conversar.</h1>
+      </div>
+      <% if (whatsappNumber) { %>
+        <a class="button button-primary" href="https://wa.me/<%= whatsappNumber %>" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp <span aria-hidden="true">↗</span></a>
+      <% } %>
+    </div>
+
+    <% if (hasChannels) { %>
+      <div class="contact-channel-grid">
+        <% if (whatsappNumber) { %>
+          <a class="contact-channel contact-channel-whatsapp" href="https://wa.me/<%= whatsappNumber %>" target="_blank" rel="noopener noreferrer">
+            <span class="section-kicker">WhatsApp</span>
+            <strong>Chamar no WhatsApp</strong>
+            <span>Fale com a equipe <span aria-hidden="true">↗</span></span>
+          </a>
+        <% } %>
+        <% if (contactData.phone) { %>
+          <a class="contact-channel" href="tel:<%= String(contactData.phone).replace(/[^+\d]/g, '') %>">
+            <span class="section-kicker">Telefone</span>
+            <strong><%= contactData.phone %></strong>
+            <span>Ligar para a clínica <span aria-hidden="true">↗</span></span>
+          </a>
+        <% } %>
+        <% if (contactData.email) { %>
+          <a class="contact-channel" href="mailto:<%= contactData.email %>">
+            <span class="section-kicker">E-mail</span>
+            <strong><%= contactData.email %></strong>
+            <span>Enviar uma mensagem <span aria-hidden="true">↗</span></span>
+          </a>
+        <% } %>
+      </div>
+    <% } else { %>
+      <div class="empty-state" role="status" aria-live="polite">Ainda não há canais de contato disponíveis para apresentação.</div>
+    <% } %>
+
+    <section class="contact-page-cta" aria-labelledby="contact-page-cta-title">
+      <div>
+        <p class="section-kicker">Atendimento</p>
+        <h2 id="contact-page-cta-title">Estamos aqui para ouvir você.</h2>
+      </div>
+      <a class="text-link dark-link" href="/localizacao">Ver localização <span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</section>

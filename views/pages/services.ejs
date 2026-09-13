@@ -1,0 +1,43 @@
+<section class="services-page section-light" aria-labelledby="services-page-title">
+  <div class="container services-page-shell">
+    <div class="section-heading services-header">
+      <div>
+        <p class="section-kicker">02 / Serviços</p>
+        <h1 id="services-page-title">Cuidados que<br><em>fazem sentido.</em></h1>
+      </div>
+      <a class="button button-primary" href="<%= whatsappUrl %>" target="_blank" rel="noopener noreferrer">Falar com a equipe <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <% if (services && services.length) { %>
+      <div class="service-grid services-grid" aria-live="polite">
+        <% const serviceImages = [
+          'https://images.pexels.com/photos/3764014/pexels-photo-3764014.jpeg?auto=compress&cs=tinysrgb&w=900',
+          'https://images.pexels.com/photos/3845766/pexels-photo-3845766.jpeg?auto=compress&cs=tinysrgb&w=900',
+          'https://images.pexels.com/photos/5355851/pexels-photo-5355851.jpeg?auto=compress&cs=tinysrgb&w=900'
+        ]; %>
+        <% services.forEach((service, index) => { %>
+          <article class="service-card service-card-<%= (index % 3) + 1 %>">
+            <span class="card-number">0<%= index + 1 %></span>
+            <span class="service-icon" aria-hidden="true"><%= ['✦', '＋', '◌'][index % 3] || '✦' %></span>
+            <h2><%= service.name %></h2>
+            <img class="service-image" src="<%= service.image || serviceImages[index % serviceImages.length] %>" alt="<%= service.name %>" loading="lazy">
+            <p><%= service.description %></p>
+            <a href="<%= whatsappUrl %>?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20<%= encodeURIComponent(service.name) %>" target="_blank" rel="noopener noreferrer">Solicitar atendimento <span aria-hidden="true">↗</span></a>
+          </article>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <div class="empty-state" role="status" aria-live="polite">
+        Ainda não há serviços disponíveis para apresentação.
+      </div>
+    <% } %>
+
+    <section class="services-cta" aria-labelledby="services-cta-title">
+      <div>
+        <p class="section-kicker">Atendimento</p>
+        <h2 id="services-cta-title">Sua conversa começa com uma escuta atenta.</h2>
+      </div>
+      <a class="button button-primary" href="<%= whatsappUrl %>" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp <span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</section>

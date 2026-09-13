@@ -1,0 +1,4 @@
+[
+  { "id": "1", "type": "image", "url": "/images/media/media-layout-one.jpg", "title": "Um espaço pensado para você", "description": "Detalhe acolhedor do espaço de atendimento da SorriMed" },
+  { "id": "2", "type": "image", "url": "/images/media/media-layout-two.jpg", "title": "Leveza em cada detalhe", "description": "Luz natural em uma sala da clínica SorriMed" }
+]

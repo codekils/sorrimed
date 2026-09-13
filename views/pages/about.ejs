@@ -1,0 +1,67 @@
+<% const aboutClinic = clinic || {}; %>
+<% const hasValues = Array.isArray(aboutClinic.values) && aboutClinic.values.length > 0; %>
+<% const hasDifferentials = Array.isArray(aboutClinic.differentials) && aboutClinic.differentials.length > 0; %>
+<% const hasInstitutionalContent = aboutClinic.name || aboutClinic.description || aboutClinic.about || aboutClinic.mission || hasValues || hasDifferentials; %>
+
+<section class="about-page section-light" aria-labelledby="about-page-title">
+  <div class="container about-page-shell">
+    <div class="section-heading about-page-header">
+      <div>
+        <p class="section-kicker">01 / Sobre</p>
+        <h1 id="about-page-title"><%= aboutClinic.name || 'Sobre a clínica' %></h1>
+      </div>
+      <a class="button button-primary" href="<%= whatsappUrl %>" target="_blank" rel="noopener noreferrer">Falar com a equipe <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <% if (hasInstitutionalContent) { %>
+      <section class="about-page-intro" aria-labelledby="about-page-intro-title">
+        <div class="about-page-intro-visual">
+          <p class="section-kicker">A clínica</p>
+          <h2 id="about-page-intro-title">Cuidado próximo,<br><em>com propósito.</em></h2>
+          <img src="/images/clinic/clinic-light2.jpg" alt="Ambiente iluminado da clínica SorriMed" width="640" height="420" loading="eager" fetchpriority="high">
+        </div>
+        <div class="about-page-copy">
+          <% if (aboutClinic.description) { %><p class="large-copy"><%= aboutClinic.description %></p><% } %>
+          <% if (aboutClinic.about) { %><p><%= aboutClinic.about %></p><% } %>
+        </div>
+      </section>
+
+      <% if (aboutClinic.mission || hasValues || hasDifferentials) { %>
+        <div class="about-detail-grid">
+          <% if (aboutClinic.mission) { %>
+            <article class="about-detail-card about-detail-card-featured">
+              <p class="section-kicker">Nossa missão</p>
+              <h2><%= aboutClinic.mission %></h2>
+            </article>
+          <% } %>
+          <% if (hasValues) { %>
+            <article class="about-detail-card">
+              <p class="section-kicker">Valores</p>
+              <ul>
+                <% aboutClinic.values.forEach((value) => { %><li><span aria-hidden="true">✦</span><%= value %></li><% }) %>
+              </ul>
+            </article>
+          <% } %>
+          <% if (hasDifferentials) { %>
+            <article class="about-detail-card">
+              <p class="section-kicker">Diferenciais</p>
+              <ul>
+                <% aboutClinic.differentials.forEach((differential) => { %><li><span aria-hidden="true">✦</span><%= differential %></li><% }) %>
+              </ul>
+            </article>
+          <% } %>
+        </div>
+      <% } %>
+    <% } else { %>
+      <div class="empty-state" role="status" aria-live="polite">Ainda não há informações institucionais disponíveis para apresentação.</div>
+    <% } %>
+
+    <section class="about-page-cta" aria-labelledby="about-page-cta-title">
+      <div>
+        <p class="section-kicker">Atendimento</p>
+        <h2 id="about-page-cta-title">Vamos conversar sobre o cuidado ideal para você.</h2>
+      </div>
+      <a class="button button-primary" href="<%= whatsappUrl %>" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp <span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</section>

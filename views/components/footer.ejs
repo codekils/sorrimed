@@ -1,0 +1,18 @@
+<% const footerContact = typeof contact !== 'undefined' ? contact : {}; %>
+<% const footerWhatsapp = typeof whatsappUrl !== 'undefined' ? whatsappUrl : ''; %>
+<% const footerLocation = typeof location !== 'undefined' ? location : {}; %>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="brand footer-brand" href="/" aria-label="SorriMed, início"><span class="brand-mark" aria-hidden="true">S</span><span>Sorri<span>Med</span></span></a>
+    <p>Odontologia com cuidado próximo.</p>
+    <nav aria-label="Navegação do rodapé"><a href="/sobre">Sobre</a><a href="/servicos">Serviços</a><a href="/profissionais">Profissionais</a><a href="/contato">Contato</a><a href="/localizacao">Localização</a></nav>
+    <div class="footer-contact">
+      <% if (footerContact.phone) { %><a href="tel:<%= String(footerContact.phone).replace(/[^+\d]/g, '') %>"><%= footerContact.phone %></a><% } %>
+      <% if (footerContact.email) { %><a href="mailto:<%= footerContact.email %>"><%= footerContact.email %></a><% } %>
+      <% if (footerLocation.address) { %><a href="/localizacao"><%= footerLocation.address %></a><% } %>
+      <% if (footerWhatsapp) { %><a class="footer-whatsapp" href="<%= footerWhatsapp %>" target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a><% } %>
+    </div>
+    <small>© 2026 SorriMed. Projeto fictício para testes.</small>
+  </div>
+</footer>
